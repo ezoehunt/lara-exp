@@ -41,6 +41,9 @@ echo $countPersons;
 
         <tbody>
             @foreach ($persons as $person)
+<?php 
+//$personSlug = $person->createPersonSlug($person->id);
+?>
                 <tr>
                     <td>{{{ $person->id }}}</td>
                     <td>{{ link_to('admin/persons/'.$person->id, $person->bioguideid) }}</td>

@@ -4,6 +4,7 @@
 // Persons are created/updated/deleted through Govtrack import
 
 use Acme\Repositories\PersonRepoInterface;
+use Acme\Utilities;
 
 class AdminPersonsController extends AdminController {
 
@@ -41,5 +42,7 @@ class AdminPersonsController extends AdminController {
 
 		return View::make('admin.persons.show', compact('person'));
 	}
+	
+	
 
 }

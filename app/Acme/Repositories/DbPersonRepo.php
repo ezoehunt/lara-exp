@@ -8,7 +8,7 @@ use Acme\Repositories\DbBaseRepo;
 class DbPersonRepo extends DbBaseRepo implements PersonRepoInterface {
 	
 	/**
-     * @var Product
+     * @var Person
     */
     protected $model;
 
@@ -19,5 +19,12 @@ class DbPersonRepo extends DbBaseRepo implements PersonRepoInterface {
     {
         $this->model = $model;
     }
+
+	/* MODEL-SPECIFIC FUNCTIONS */
+	// test method
+	public function getByLastname($lastname)
+	{
+		return $this->model->where('lastname', '=', $lastname)->firstOrFail();
+	}
 	
 }

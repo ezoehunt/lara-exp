@@ -6,4 +6,7 @@ interface PersonRepoInterface {
 	
 	public function getByID($id);
 	
+	// test method
+	public function getByLastname($name);	
+	
 }
