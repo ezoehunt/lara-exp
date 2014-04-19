@@ -1,109 +1,40 @@
 <?php
 
+// Admin view of Members of Congress includes ONLY index and show
+// Persons are created/updated/deleted through Govtrack import
+
+use Acme\Repositories\PersonRepoInterface;
+
 class AdminPersonsController extends AdminController {
 
+	protected $person;
+	
+	public function __construct(PersonRepoInterface $person)
+	{
+		$this->person = $person;
+	}
+	
     /**
-	 * Display a listing of persons
-	 *
-	 * @return Response
-	 */
-    public function index()
+	 * @var Agovscores\DbPersonRepo
+	*/
+	public function index()
     {
-        $persons = Person::all();
+        $persons = $this->person->findAll();
 
-        return View::make('persons.index', compact('persons'));
+        return View::make('admin.persons.index', compact('persons'));
     }
-
-    /**
-	 * Show the form for creating a new person
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('persons.create');
-	}
-
-	/**
-	 * Store a newly created person in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		$validator = Validator::make($data = Input::all(), Person::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Person::create($data);
-
-		return Redirect::route('persons.index');
-	}
 
 	/**
 	 * Display the specified person.
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	*/
 	public function show($id)
 	{
-		$person = Person::findOrFail($id);
+		$person = $this->person->find($id);
 
-		return View::make('persons.show', compact('person'));
+		return View::make('admin.persons.show', compact('person'));
 	}
 
-	/**
-	 * Show the form for editing the specified person.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		$person = Person::find($id);
-
-		return View::make('persons.edit', compact('person'));
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		$person = Person::findOrFail($id);
-
-		$validator = Validator::make($data = Input::all(), Person::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$person->update($data);
-
-		return Redirect::route('persons.index');
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		Person::destroy($id);
-
-		return Redirect::route('persons.index');
-	}
-
-	
-// stop
 }

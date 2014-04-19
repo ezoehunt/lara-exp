@@ -122,6 +122,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+		'Acme\Repositories\BackendServiceProvider',
 	),
 
 	/*
