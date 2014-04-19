@@ -1,0 +1,124 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+	content: "\e600";
+}
+.icon-library:before {
+	content: "\e601";
+}
+.icon-profile:before {
+	content: "\e602";
+}
+.icon-calendar:before {
+	content: "\e603";
+}
+.icon-user:before {
+	content: "\e604";
+}
+.icon-user2:before {
+	content: "\e605";
+}
+.icon-users:before {
+	content: "\e606";
+}
+.icon-checkmark-circle:before {
+	content: "\e607";
+}
+.icon-facebook:before {
+	content: "\e608";
+}
+.icon-twitter:before {
+	content: "\e609";
+}
+.icon-github:before {
+	content: "\e60a";
+}
+.icon-flag:before {
+	content: "\e60b";
+}
+.icon-coin:before {
+	content: "\e60c";
+}
+.icon-feed:before {
+	content: "\e60d";
+}
+.icon-info:before {
+	content: "\e60e";
+}
+.icon-briefcase:before {
+	content: "\e60f";
+}
+.icon-pencil:before {
+	content: "\e610";
+}
+.icon-envelope:before {
+	content: "\e611";
+}
+.icon-bubble:before {
+	content: "\e612";
+}
+.icon-file:before {
+	content: "\e613";
+}
+.icon-book:before {
+	content: "\e614";
+}
+.icon-stack:before {
+	content: "\e615";
+}
+.icon-feed2:before {
+	content: "\e616";
+}
+.icon-box-add:before {
+	content: "\e617";
+}
+.icon-drawer:before {
+	content: "\e618";
+}
+.icon-target:before {
+	content: "\e619";
+}
+.icon-checkbox:before {
+	content: "\e61a";
+}
+.icon-anchor:before {
+	content: "\e61b";
+}
+.icon-calendar2:before {
+	content: "\e61c";
+}
+.icon-target2:before {
+	content: "\e61d";
+}
+.icon-newspaper:before {
+	content: "\e620";
+}
+.icon-banknote:before {
+	content: "\e61e";
+}
+.icon-earth:before {
+	content: "\e61f";
+}
