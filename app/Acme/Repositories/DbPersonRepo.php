@@ -3,17 +3,21 @@
 // Eloquent-specific implementation
 
 use Person;
+use Acme\Repositories\DbBaseRepo;
 
-class DbPersonRepo implements PersonRepoInterface {
+class DbPersonRepo extends DbBaseRepo implements PersonRepoInterface {
 	
-	public function findAll() 
-	{
-		return Person::all();
-	}
-	
-	public function find($id)
-	{
-		return Person::findOrFail($id);
-	}
+	/**
+     * @var Product
+    */
+    protected $model;
+
+    /**
+     * @param Product $model
+    */
+    function __construct(Person $model)
+    {
+        $this->model = $model;
+    }
 	
 }

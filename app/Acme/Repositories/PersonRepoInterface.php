@@ -2,8 +2,8 @@
 
 interface PersonRepoInterface {
 	
-	public function findAll();
+	public function getAll();
 	
-	public function find($id);
+	public function getByID($id);
 	
 }
