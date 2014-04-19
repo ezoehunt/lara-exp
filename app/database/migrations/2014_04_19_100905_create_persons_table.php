@@ -20,6 +20,7 @@ class CreatePersonsTable extends Migration {
 			$table->string('lastname',255);
 			$table->string('namemod',10);
 			$table->string('name',100);
+			$table->string('slug');
 			$table->string('nickname',255);
 			$table->string('sortname',64);
 			$table->date('birthday');

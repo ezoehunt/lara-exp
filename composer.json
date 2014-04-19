@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"davejamesmiller/laravel-breadcrumbs": "~2.2.0"
+		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
+		"cviebrock/eloquent-sluggable": "1.0.*"
 	},
 	"require-dev": {
 		"way/generators": "2.*",

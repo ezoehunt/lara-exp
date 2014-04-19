@@ -32,6 +32,7 @@ class PersonsTableSeeder extends Seeder {
 			'lastname' 		=> $lastname,
 			'namemod' 		=> $faker->suffix(),
 			'name' 			=> $name,
+			'slug'			=> $firstname.'-'.$lastname,
 			'nickname' 		=> $firstname,
 			'sortname' 		=> 'null',
 			'birthday' 		=> $faker->dateTimeBetween($startDate = '-60 years', $endDate = '-30 years'),

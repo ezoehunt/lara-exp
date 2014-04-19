@@ -36,9 +36,9 @@ class AdminPersonsController extends AdminController {
 	 * @param  int  $id
 	 * @return Response
 	*/
-	public function show($id)
+	public function show($slug)
 	{
-		$person = $this->person->getByID($id);
+		$person = $this->person->getBySlug($slug);
 
 		return View::make('admin.persons.show', compact('person'));
 	}

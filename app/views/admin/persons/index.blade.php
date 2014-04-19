@@ -43,10 +43,11 @@ echo $countPersons;
             @foreach ($persons as $person)
 <?php 
 //$personSlug = $person->createPersonSlug($person->id);
+//echo $person->slug;
 ?>
                 <tr>
                     <td>{{{ $person->id }}}</td>
-                    <td>{{ link_to('admin/persons/'.$person->id, $person->bioguideid) }}</td>
+                    <td>{{ link_to('admin/persons/'.$person->slug, $person->bioguideid) }}</td>
                     <td>
                     </td>
                     <td>{{{ $person->firstname }}}</td>

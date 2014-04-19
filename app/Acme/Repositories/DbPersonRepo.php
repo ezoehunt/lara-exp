@@ -22,6 +22,11 @@ class DbPersonRepo extends DbBaseRepo implements PersonRepoInterface {
 
 	/* MODEL-SPECIFIC FUNCTIONS */
 	// test method
+	public function getBySlug($slug)
+	{
+		return $this->model->where('slug', '=', $slug)->firstOrFail();
+	}
+	
 	public function getByLastname($lastname)
 	{
 		return $this->model->where('lastname', '=', $lastname)->firstOrFail();
