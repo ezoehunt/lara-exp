@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	// See /local and /production for this setting
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'America/Los_Angeles',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -77,8 +77,9 @@ return array(
 	| will not be safe. Please do this before deploying an application!
 	|
 	*/
-
-	'key' => '8u2AULWqaUsWaKAel1oBR3jBKzm2jn1M',
+	
+	// See .env for this setting
+	'key' => $_ENV['MYKEY'],
 
 	/*
 	|--------------------------------------------------------------------------

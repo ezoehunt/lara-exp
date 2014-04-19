@@ -13,8 +13,8 @@ return array(
 	|
 	*/
 
-	'debug' => true,
-	
+	'debug' => false,
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
@@ -26,6 +26,11 @@ return array(
 	|
 	*/
 
-	'url' => 'http://govscores.dev',
+	'url' => 'http://govscores.com',
+
+
+	
+	
+	
 
 );
