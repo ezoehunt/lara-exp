@@ -33,7 +33,7 @@ class AdminPersonsController extends AdminController {
 
 	/**
 	 * Display a single person
-	 * @param  int  $id
+	 * @param  string $slug
 	 * @return Response
 	*/
 	public function show($slug)

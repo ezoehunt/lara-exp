@@ -13,12 +13,7 @@
                 
 <h1>All Members of Congress</h1>  
 
-<p>Current Total: 
-<?php
-$countPersons = DB::table('persons')->count();
-echo $countPersons;
-?>
-</p>
+<p>Current Total: {{{ $persons->count() }}}</p>
 
 <?php
 // Allow pagination through sorted results
@@ -41,10 +36,12 @@ echo $countPersons;
 
         <tbody>
             @foreach ($persons as $person)
-<?php 
-//$personSlug = $person->createPersonSlug($person->id);
-//echo $person->slug;
+
+<?php
+//echo Person::getIDFromBioguide($person->bioguideid);
+
 ?>
+
                 <tr>
                     <td>{{{ $person->id }}}</td>
                     <td>{{ link_to('admin/persons/'.$person->slug, $person->bioguideid) }}</td>

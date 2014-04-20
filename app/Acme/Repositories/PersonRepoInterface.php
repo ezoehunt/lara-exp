@@ -11,6 +11,8 @@ interface PersonRepoInterface {
 	
 	public function getBySlug($slug);
 	
+	//public function getIDFromBioguide($bioguideid);
+	
 			
 	
 }

@@ -13,7 +13,7 @@ class DbPersonRepo extends DbBaseRepo implements PersonRepoInterface {
     protected $model;
 
     /**
-     * @param Product $model
+     * @param Person $model
     */
     function __construct(Person $model)
     {
@@ -22,14 +22,16 @@ class DbPersonRepo extends DbBaseRepo implements PersonRepoInterface {
 
 	/* MODEL-SPECIFIC FUNCTIONS */
 	// test method
+	public function getByLastname($lastname)
+	{
+		return $this->model->where('lastname', '=', $lastname)->firstOrFail();
+	}
+	
 	public function getBySlug($slug)
 	{
 		return $this->model->where('slug', '=', $slug)->firstOrFail();
 	}
 	
-	public function getByLastname($lastname)
-	{
-		return $this->model->where('lastname', '=', $lastname)->firstOrFail();
-	}
+	
 	
 }

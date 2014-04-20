@@ -9,12 +9,7 @@
 
 <h1>All Members of Congress</h1>  
 
-<p>Current Total: 
-<?php
-$countPersons = DB::table('persons')->count();
-echo $countPersons;
-?>
-</p>
+<p>Current Total: {{{ $persons->count() }}}</p>
 
 <div style="float:left;">
 <?php

@@ -3,13 +3,6 @@
 @section('content')
 
 <div id="main-content-admin" class="col-xs-12 col-sm-9 col-md-10 main-col-padding">
-<?php
-$fullname = $person->firstname;
-if ($person->middlename != 'null') {
-    $fullname .= ' '.$person->middlename;
-}
-$fullname .= ' '.$person->lastname;
-?>
 
 {{-- Breadcrumbs::render('admin_item', $person, 'Persons', '/admin/persons', $fullname) --}}
         
@@ -22,7 +15,7 @@ $fullname .= ' '.$person->lastname;
 <p>{{ link_to_route('admin.persons.index', 'Return to all Members of Congress') }}</p>
     <div>
 
-<p><b><?php echo $fullname; ?></b></p>
+<p><b><?php echo Acme\Utilities\PersonUtilities::makeDisplayName($person); ?></b></p>
 <ul>
 </ul>
 </br>  

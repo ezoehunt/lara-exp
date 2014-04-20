@@ -14,13 +14,13 @@ class CreatePersonsTable extends Migration {
 	{
 		Schema::create('persons', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('bioguideid',255)->unique();
-			$table->string('firstname',255);
+			$table->string('bioguideid',255)->required()->unique();
+			$table->string('firstname',255)->required();
 			$table->string('middlename',255);
-			$table->string('lastname',255);
+			$table->string('lastname',255)->required();
 			$table->string('namemod',10);
 			$table->string('name',100);
-			$table->string('slug');
+			$table->string('slug')->required();
 			$table->string('nickname',255);
 			$table->string('sortname',64);
 			$table->date('birthday');
@@ -30,7 +30,7 @@ class CreatePersonsTable extends Migration {
 			$table->string('facebookid',255);
 			$table->string('youtubeid',255);
 			$table->string('wikipediaid',255);
-			$table->string('govtrackid',50);
+			$table->string('govtrackid',50)->required();
 			$table->string('pvsid',50);
 			$table->string('osid',50);
 			$table->integer('cspanid');

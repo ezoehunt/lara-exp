@@ -6,13 +6,16 @@ class Person extends \Eloquent {
 
     protected $table = 'persons';
 
+	protected $guarded = array('id', 'bioguideid');
 
-	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'bioguideid'	=>	'required|unique',
+        'govtrackid'   	=>	'required|unique',
+        'slug'      	=>	'required|unique',
+        'firstname'   	=>	'required',
+        'lastname'    	=>	'required'
 	];
 
-	// Don't forget to fill this array
 	protected $fillable = [];
 	
 	public static $sluggable = array(
@@ -20,5 +23,7 @@ class Person extends \Eloquent {
         'save_to'    	=>	'slug',
 		'on_update'		=>	true
     );
+	
+	
 
 }

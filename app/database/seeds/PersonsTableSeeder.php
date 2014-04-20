@@ -14,6 +14,7 @@ class PersonsTableSeeder extends Seeder {
 			$firstname = $faker->firstName();
 			$middlename = $faker->firstName();
 			$lastname = $faker->lastName();
+			$namemod = $faker->suffix();
 			$name = $firstname.' '.$middlename.' '.$lastname;
 			$tmpfec = array('0' => 'H123456', '1' => 'H098765');
 			$fec = json_encode($tmpfec);
@@ -28,12 +29,12 @@ class PersonsTableSeeder extends Seeder {
 			Person::create([
 			'bioguideid' 	=> $faker->unique()->randomNumber(10000, 99999),
 			'firstname' 	=> $firstname,
-			'middlename' 	=> $middlename,
+			'middlename' 	=> $faker->randomElement($array = array ($middlename,'null')),
 			'lastname' 		=> $lastname,
-			'namemod' 		=> $faker->suffix(),
-			'name' 			=> $name,
+			'namemod' 		=> $faker->randomElement($array = array ($namemod,'null')),
+			'name' 			=> $faker->randomElement($array = array ($name,'null')),
 			'slug'			=> $firstname.'-'.$lastname,
-			'nickname' 		=> $firstname,
+			'nickname' 		=> $faker->randomElement($array = array ($firstname,'null')),
 			'sortname' 		=> 'null',
 			'birthday' 		=> $faker->dateTimeBetween($startDate = '-60 years', $endDate = '-30 years'),
 			'gender' 		=> $faker->randomNumber(0,1),
