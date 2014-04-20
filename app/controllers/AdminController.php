@@ -15,3 +15,5 @@ class AdminController extends BaseController {
     }
 
 }
+
+//EOF

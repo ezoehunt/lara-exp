@@ -42,7 +42,7 @@ class AdminPersonsController extends AdminController {
 
 		return View::make('admin.persons.show', compact('person'));
 	}
-	
-	
 
 }
+
+//EOF

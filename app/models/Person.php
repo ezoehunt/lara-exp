@@ -23,7 +23,7 @@ class Person extends \Eloquent {
         'save_to'    	=>	'slug',
 		'on_update'		=>	true
     );
-	
-	
 
 }
+
+// EOF
