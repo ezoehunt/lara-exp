@@ -2,6 +2,8 @@
 
 class PersonUtilities {
 
+	public function __construct() {}
+
 	public static function makeDisplayName($person)
 	{
 		if ($person->name == 'null') {

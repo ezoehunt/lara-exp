@@ -7,13 +7,22 @@ interface PersonRepoInterface {
 	public function getByID($id);
 	
 	// test method
-	public function getByLastname($name);
+	//public function getByLastname($name);
 	
 	public function getBySlug($slug);
-	
-	//public function getIDFromBioguide($bioguideid);
-	
-			
+
+	// OTHER FUNCTIONS NEEDED
+	/*
+		getbybioguide
+		getbycurrent
+		getbyscore
+		getbyparty
+		getbystate
+		getbydistrict
+		getbyrole (senator vs rep vs exec)
+		getbyseniority (jr, sr, etc)
+
+	*/
 	
 }
 

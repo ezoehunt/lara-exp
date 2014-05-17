@@ -31,6 +31,8 @@
                 <th>First name</th>
 
                 <th>Last name</th>
+
+                <th>Display name</th>
             </tr>
         </thead>
 
@@ -39,7 +41,6 @@
 
 <?php
 //echo Person::getIDFromBioguide($person->bioguideid);
-
 ?>
 
                 <tr>
@@ -49,6 +50,14 @@
                     </td>
                     <td>{{{ $person->firstname }}}</td>
                     <td>{{{ $person->lastname }}}</td>
+                    <td>{{{ $person->name }}}
+{{-- $displayName --}}
+<?php
+//echo '<pre>';
+//var_dump($displayName);
+//echo '</pre>';
+?>
+                    </td>
                     
                     
                 </tr>

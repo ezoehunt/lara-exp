@@ -18,11 +18,11 @@ class Person extends \Eloquent {
 
 	protected $fillable = [];
 	
-	public static $sluggable = array(
+    /*public static $sluggable = array(
         'build_from' 	=>	array('firstname','lastname'),
         'save_to'    	=>	'slug',
 		'on_update'		=>	true
-    );
+    );*/
 
 }
 

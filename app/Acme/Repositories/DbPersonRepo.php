@@ -20,14 +20,16 @@ class DbPersonRepo extends DbBaseRepo implements PersonRepoInterface {
         $this->model = $model;
     }
 
-	/* MODEL-SPECIFIC FUNCTIONS */
+	
 	// test method
-	public function getByLastname($lastname)
+	/*public function getByLastname($lastname)
 	{
 		return $this->model->where('lastname', '=', $lastname)->firstOrFail();
-	}
+	}*/
 	
-	public function getBySlug($slug)
+    
+	/* MODEL-SPECIFIC FUNCTIONS */
+    public function getBySlug($slug)
 	{
 		return $this->model->where('slug', '=', $slug)->firstOrFail();
 	}

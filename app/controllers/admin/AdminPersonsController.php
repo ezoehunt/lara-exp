@@ -4,7 +4,7 @@
 // Persons are created/updated/deleted through Govtrack import
 
 use Acme\Repositories\PersonRepoInterface;
-use Acme\Utilities;
+use Acme\Utilities\PersonUtilities;
 
 class AdminPersonsController extends AdminController {
 
@@ -12,13 +12,16 @@ class AdminPersonsController extends AdminController {
 	    * @var PersonRepository
     */
 	private $person;
+    protected $utilities;
 	
 	/**
-     * @param PersonRepoInterface $person
+     * injecting PersonRepoInterface as $person
+     * injecting PersonUtilities as $utils
     */
-	public function __construct(PersonRepoInterface $person)
+	public function __construct(PersonRepoInterface $person, PersonUtilities $utils)
 	{
 		$this->person = $person;
+        $this->utils = $utils;
 	}
 	
     /**
@@ -27,8 +30,12 @@ class AdminPersonsController extends AdminController {
 	public function index()
     {
         $persons = $this->person->getAll();
-
-        return View::make('admin.persons.index', compact('persons'));
+        
+        foreach ($persons as $person) {
+            $displayName[] = $this->utils->makeDisplayName($person);
+        }
+        
+        return View::make('admin.persons.index', compact('persons','displayName'));
     }
 
 	/**
@@ -39,8 +46,9 @@ class AdminPersonsController extends AdminController {
 	public function show($slug)
 	{
 		$person = $this->person->getBySlug($slug);
+        $displayName = $this->utils->makeDisplayName($person);
 
-		return View::make('admin.persons.show', compact('person'));
+		return View::make('admin.persons.show', compact('person','displayName'));
 	}
 
 }

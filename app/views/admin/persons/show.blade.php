@@ -15,7 +15,7 @@
 <p>{{ link_to_route('admin.persons.index', 'Return to all Members of Congress') }}</p>
     <div>
 
-<p><b><?php echo Acme\Utilities\PersonUtilities::makeDisplayName($person); ?></b></p>
+<p><b>{{{ $person->name }}}</b></p>
 <ul>
 </ul>
 </br>  
