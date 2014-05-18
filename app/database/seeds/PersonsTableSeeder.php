@@ -13,9 +13,21 @@ class PersonsTableSeeder extends Seeder {
 		{
 			$firstname = $faker->firstName();
 			$middlename = $faker->firstName();
+			$middlename = $faker->randomElement($array = array ($middlename,'null'));
+			
 			$lastname = $faker->lastName();
 			$namemod = $faker->suffix();
-			$name = $firstname.' '.$middlename.' '.$lastname;
+			$namemod = $faker->randomElement($array = array ($namemod,'null'));
+			
+			$name = $firstname;
+			if ($middlename != 'null') {
+			    $name .= ' '.$middlename;
+			}
+			$name .= ' '.$lastname;
+			if ($namemod != 'null') {
+			    $name .= ' '.$namemod;
+			}	
+					
 			$tmpfec = array('0' => 'H123456', '1' => 'H098765');
 			$fec = json_encode($tmpfec);
 			$execflag = $faker->randomElement($array = array ('null','executive'));
@@ -29,10 +41,10 @@ class PersonsTableSeeder extends Seeder {
 			Person::create([
 			'bioguideid' 	=> $faker->unique()->randomNumber(10000, 99999),
 			'firstname' 	=> $firstname,
-			'middlename' 	=> $faker->randomElement($array = array ($middlename,'null')),
+			'middlename' 	=> $middlename,
 			'lastname' 		=> $lastname,
-			'namemod' 		=> $faker->randomElement($array = array ($namemod,'null')),
-			'name' 			=> $faker->randomElement($array = array ($name,'null')),
+			'namemod' 		=> $namemod,
+			'name' 			=> $name,
 			'slug'			=> $firstname.'-'.$lastname,
 			'nickname' 		=> $faker->randomElement($array = array ($firstname,'null')),
 			'sortname' 		=> 'null',

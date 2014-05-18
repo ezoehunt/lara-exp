@@ -2,14 +2,14 @@
 
 interface PersonRepoInterface {
 	
+	// DBBaseRepo functions
 	public function getAll();
-	
 	public function getByID($id);
-	
-	// test method
-	//public function getByLastname($name);
-	
+	public function getAllAdminOrder($sort, $order, $paginate);
+
+	// DBPersonRepo functions
 	public function getBySlug($slug);
+	
 
 	// OTHER FUNCTIONS NEEDED
 	/*

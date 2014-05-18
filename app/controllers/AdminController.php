@@ -10,8 +10,11 @@ class AdminController extends BaseController {
 
     public function dashboard()
     {
-		$bodyclass = ['admin','dashboard'];		
-		return View::make('admin.dashboard');
+		$bodyclass = ['admin','dashboard'];
+        $pagename = 'Dashboard';     
+        $pagedescription = 'Dashboard';
+
+		return View::make('admin.dashboard', array('bodyclass' => $bodyclass, 'pagename' => $pagename, 'pagedescription' => $pagedescription));
     }
 
 }

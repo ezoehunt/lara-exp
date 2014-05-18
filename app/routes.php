@@ -11,22 +11,14 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-
-
 Route::resource('/persons', 'PersonsController');
 
-
-//App::bind(
-//	'Acme\Repositories\PersonRepoInterface',
-//	'Acme\Repositories\DbPersonRepo'
-//);
 
 /*------ ADMIN --------*/
 Route::get('/admin', array('as' =>'admin', 'uses' => 'AdminController@dashboard'))->before('admin_auth');
 
+
+
+Route::get('/admin/persons/allpersons', array('as' => 'admin.persons.allpersons', 'uses' => 'AdminPersonsController@allpersons'));
 Route::resource('/admin/persons', 'AdminPersonsController');
 

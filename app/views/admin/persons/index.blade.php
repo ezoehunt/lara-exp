@@ -2,77 +2,53 @@
 
 @section('content')
     
-<!-- start yield content -->
-    <div id="main-content-admin" class="col-xs-12 col-sm-9 col-md-10 main-col-padding">
-
-{{-- Breadcrumbs::render('admin_model','Members of Congress','admin/persons/allpersons') --}}
+{{ Breadcrumbs::render('admin_model','Persons','persons') }}
         
-        <div class="slide-wrapper">
-            <div class="slide" id="">
-                <div class="slide-inner">
-                
-<h1>All Members of Congress</h1>  
+<h3>Manage People</h3>
+<p>{{ link_to_route('admin.persons.allpersons', 'View All People') }}</p>
 
-<p>Current Total: {{{ $persons->count() }}}</p>
+@if ($errors->any())
+<div class="alert alert-error">
+    <h2>Errors</h2>
+    <ul>
+{{ implode('', $errors->all('<li>:message</li>')) }} <a href="#" data-dismiss="alert" class="close">&times;</a> 
+    </ul>
+</div>
+@endif
 
-<?php
-// Allow pagination through sorted results
-//echo $persons->addQuery('order',$order)->addQuery('sort', $sort)->links();
-?>
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
+@if(Session::has('success'))
+<div class="alert alert-success" id="flash_notice">{{ Session::get('success') }}<a href="#" data-dismiss="alert" class="close">&times;</a></div>
+@endif
 
-                <th>Bioguide ID</th>
-                
-                <th>Status</th> 
-                
-                <th>First name</th>
+@if(Session::has('secondary'))
+<div class="alert alert-info" id="flash_notice">{{ Session::get('secondary') }}<a href="#" data-dismiss="alert" class="close">&times;</a></div>
+@endif
 
-                <th>Last name</th>
+@if(Session::has('error'))
+<div class="alert alert-error" id="flash_notice">{{ Session::get('error') }}<a href="#" data-dismiss="alert" class="close">&times;</a></div>
+@endif
 
-                <th>Display name</th>
-            </tr>
-        </thead>
+<div class="row" style="border-bottom:1px solid #ddd;">
+    <div class="col-xs-3" style="padding: .75em .75em .75em 1em;">&nbsp;
+    </div>
+    
+    <div class="col-xs-9" style="padding: .75em .75em .75em 1em;font-weight:bold;border-left:1px solid #ddd;text-transform:uppercase;">Upload and Import Data&nbsp; - &nbsp;do these left-to-right, top-to-bottom
+    </div>
+</div>
 
-        <tbody>
-            @foreach ($persons as $person)
+<?php // UPLOAD ROW ?>
+<div class="row" style="border-bottom:1px solid #ddd;margin-top:0;padding-top:0;">
+    
+    <div class="col-xs-3" style="padding: .75em .75em .75em 1em;font-weight:bold;display:block;height:86px;">Upload Files<br/><span style="font-weight:normal;font-size:90%;">Format &nbsp;=&nbsp; JSON or XML<br/>Overwrites existing file</span>
+    </div>
+    
+    <div class="col-xs-9" style="padding: .75em .75em .75em 1em;font-weight:bold;border-left:1px solid #ddd;display:block;height:86px;">
+{{-- Form::open(array('action' => 'AdminPersonsController@upload','files' => true, 'method' => 'post')) }}
+{{ Form::file('file', array('style' => '')) }}
+{{ Form::submit('Upload Source File for Members of Congress', array('class' => 'btn btn-primary btn-small','style' => 'margin-top:1em;')) }}
+{{ Form::close() --}}
+    </div>
+</div>
 
-<?php
-//echo Person::getIDFromBioguide($person->bioguideid);
-?>
 
-                <tr>
-                    <td>{{{ $person->id }}}</td>
-                    <td>{{ link_to('admin/persons/'.$person->slug, $person->bioguideid) }}</td>
-                    <td>
-                    </td>
-                    <td>{{{ $person->firstname }}}</td>
-                    <td>{{{ $person->lastname }}}</td>
-                    <td>{{{ $person->name }}}
-{{-- $displayName --}}
-<?php
-//echo '<pre>';
-//var_dump($displayName);
-//echo '</pre>';
-?>
-                    </td>
-                    
-                    
-                </tr>
-            @endforeach
-        </tbody>
-    </table>   
-                    
-                    
-                </div><!-- / slide-inner -->
-            </div><!-- / slide -->
-        </div><!-- / slide-wrapper -->
-        
-    </div><!-- end main-content column -->
-
-<!--/div--><!-- WHERE IS THIS ? end main row -->
-<!-- no bottom bar for admin -->
-<!-- end yield content -->
 @stop
