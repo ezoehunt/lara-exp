@@ -5,6 +5,7 @@
 {{ Breadcrumbs::render('admin_model','Persons','admin/persons/allpersons') }}
 
 <h1>All People</h1>  
+<p>{{ link_to_route('admin.persons.index', '&#171; back') }}</p>
 
 @if ($errors->any())
 <div class="alert alert-error">
@@ -35,8 +36,6 @@ $countPersons = DB::table('persons')->count();
 echo $countPersons;
 ?>
 </p>
-
-<?php //echo $displayName; ?></p>
 
 <?php
 // Allow pagination through sorted results

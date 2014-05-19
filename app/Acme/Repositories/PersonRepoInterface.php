@@ -1,5 +1,7 @@
 <?php namespace Acme\Repositories;
 
+// Contract
+
 interface PersonRepoInterface {
 	
 	// DBBaseRepo functions
@@ -9,11 +11,17 @@ interface PersonRepoInterface {
 
 	// DBPersonRepo functions
 	public function getBySlug($slug);
+	public function getByBioguide($bioguideid);
+
+	//public function makeDisplayName($person);
+	public function prepInsertData($array, $tableName);
+	public function countInsertData($array, $tableName, $type);
+	public function storePeoplePDO($array);
 	
 
 	// OTHER FUNCTIONS NEEDED
 	/*
-		getbybioguide
+		getfile
 		getbycurrent
 		getbyscore
 		getbyparty

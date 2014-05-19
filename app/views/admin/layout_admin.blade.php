@@ -67,46 +67,8 @@ $pagekeywords = 'Gov Scores Administration';
 
 		<div class="col-xs-12" id="gs-guts">
 			<div id="row-canvas" class="row row-offcanvas row-offcanvas-left admin">
-				<div id="main-sidebar" class="col-xs-3 col-sm-3 col-md-2 sidebar-offcanvas" role="navigation">
-					<div class="gs-sidebar">
-						<!-- display logo for sizes +xs -->
-						<a href="/" title="Go to the website home page"><img id="logo-img-big" class="logo-sidebar" src="/images/logos/icon_gov.png"></a>
-						
-						<ul class="gs-sidenav sidebar-nav">
 
-<?php if ( isset($bodyclass) & !in_array('dashboard',$bodyclass)) { ?>
-							<li style="background-color:#fff;text-transform:none;letter-spacing:0;"><a class="" href="{{ URL::route('admin') }}" title=""> &#171; back to Admin Home</a></li>
-<? } ?>							
-							<li<?php if ( isset($bodyclass) & in_array('congresses',$bodyclass)) {echo ' class="active"';} ?>><a class="nav-link" href="{{ URL::route('admin') }}" title="Congresses"><span aria-hidden="true" class="icon-flag"></span> Congresses</a></li>
-								
-						<ul class="gs-sidenav-inner">
-						<li<?php if ( isset($bodyclass) & in_array('sessions',$bodyclass)) {echo ' class="active"';} ?>><a class="nav-link" href="{{ URL::route('admin.persons.index') }}" title="Bills and Resolutions"><span aria-hidden="true" class="icon-users"></span> Sessions</a></li>
-							
-						<li<?php if ( isset($bodyclass) & in_array('bills',$bodyclass)) {echo ' class="active"';} ?>><a class="nav-link" href="{{ URL::route('admin.persons.index') }}" title="Bills and Resolutions"><span aria-hidden="true" class="icon-users"></span> Bills</a></li>
-							
-						<li<?php if ( isset($bodyclass) & in_array('persons',$bodyclass)) {echo ' class="active"';} ?>><a class="nav-link" href="{{ URL::route('admin.persons.index') }}" title="People"><span aria-hidden="true" class="icon-users"></span> People</a></li>
-
-						<li<?php if ( isset($bodyclass) & in_array('committees',$bodyclass)) {echo ' class="active"';} ?>><a class="nav-link" href="{{ URL::route('admin.persons.index') }}" title="Bills and Resolutions"><span aria-hidden="true" class="icon-users"></span> Committees</a></li>
-							
-						<li<?php if ( isset($bodyclass) & in_array('votes',$bodyclass)) {echo ' class="active"';} ?>><a class="nav-link" href="{{ URL::route('admin.persons.index') }}" title="Bills and Resolutions"><span aria-hidden="true" class="icon-users"></span> Votes</a></li>
-							
-						<li<?php if ( isset($bodyclass) & in_array('budgets',$bodyclass)) {echo ' class="active"';} ?>><a class="nav-link" href="{{ URL::route('admin.persons.index') }}" title="Bills and Resolutions"><span aria-hidden="true" class="icon-users"></span> Budgets</a></li>	
-																
-						</ul>
-
-							<li><a class="nav-link" href="" title=""><span aria-hidden="true" class="icon-library"></span> Reports</a></li>
-
-							<li><a class="nav-link" href="{{-- URL::route('admin.users.index') --}}" title=""><span aria-hidden="true" class="icon-library"></span> Users</a></li>
-							
-							<!-- display avatar for sizes +xs -->
-							<li class="sidebar-avatar">
-								<a class="nav-link" href="/username" title="Your Profile"><div class="block-avatar"><img class="side-avatar" src="/images/users/user_img.jpg"></div><div class="sidebar-username">Profile</div></a>
-							</li>
-
-						</ul>
-						
-					</div><!-- end gs-sidebar-->
-				 </div><!-- end main-sidebar -->
+				@include('_partials.admin_sidebar')
 
 				 <div id="main-content-admin" class="col-xs-12 col-sm-9 col-md-10 main-col-padding">
 				 	<div class="slide-wrapper">
@@ -126,10 +88,10 @@ $pagekeywords = 'Gov Scores Administration';
 	</div><!-- end gs-content row -->
 </div><!-- end gs-wrap container -->
 
-<!--div style="clear:both;margin-top:2em;margin-bottom:4em;border:2px solid red;float:right;width:50%;">
+<div style="clear:both;margin-top:2em;margin-bottom:4em;border:2px solid red;float:right;width:50%;">
 <?php
 var_dump(gethostname());
-//echo Session::getToken();
+echo '<br/>'.Session::getToken().'<br/>';
 echo '<pre>Environment';
 print_r($_ENV);
 echo '</pre>';
@@ -140,10 +102,10 @@ echo '<pre>postdsdfsd';
 print_r($_POST);
 echo '</pre>';
 echo '<pre>session';
-//print_r($_SESSION);
+print_r(Session::all());
 echo '</pre>';
 ?>
-</div-->
+</div>
 
 
 {{ HTML::script('js/jquery-2.0.min.js') }}

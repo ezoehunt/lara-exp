@@ -20,11 +20,11 @@ class CreatePersonsTable extends Migration {
 			$table->string('lastname',255)->required();
 			$table->string('namemod',10);
 			$table->string('name',100);
-			$table->string('slug')->required();
+			$table->string('slug',255)->required();
 			$table->string('nickname',255);
 			$table->string('sortname',64);
 			$table->date('birthday');
-			$table->integer('gender');
+			$table->string('gender',2);
 			$table->string('religion');
 			$table->string('twitterid',50);
 			$table->string('facebookid',255);

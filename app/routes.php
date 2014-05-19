@@ -13,12 +13,21 @@
 
 Route::resource('/persons', 'PersonsController');
 
-
 /*------ ADMIN --------*/
 Route::get('/admin', array('as' =>'admin', 'uses' => 'AdminController@dashboard'))->before('admin_auth');
 
-
-
 Route::get('/admin/persons/allpersons', array('as' => 'admin.persons.allpersons', 'uses' => 'AdminPersonsController@allpersons'));
+
 Route::resource('/admin/persons', 'AdminPersonsController');
+
+Route::post('/admin/persons/upload', 'AdminPersonsController@upload')->before('csrf');
+
+Route::post('/admin/persons/addpersons', 'AdminPersonsController@addPersons')->before('csrf');
+
+
+
+/*Route::post('/admin/persons/upload', array('before' => 'csrf', function()
+{
+    return 'You gave a valid CSRF token!';
+}));*/
 

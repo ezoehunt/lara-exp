@@ -11,7 +11,6 @@ abstract class DbBaseRepo {
     {
         $this->model = $model;
     }
-
     
     public function getAll()
     {

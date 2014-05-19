@@ -49,7 +49,7 @@ class PersonsTableSeeder extends Seeder {
 			'nickname' 		=> $faker->randomElement($array = array ($firstname,'null')),
 			'sortname' 		=> 'null',
 			'birthday' 		=> $faker->dateTimeBetween($startDate = '-60 years', $endDate = '-30 years'),
-			'gender' 		=> $faker->randomNumber(0,1),
+			'gender' 		=> $faker->randomElement($array = array ('M','F')),
 			'religion' 		=> $faker->randomElement($array = array ('Jewish','Catholic','Presbyterian')),
 			'twitterid' 	=> $faker->randomNumber(10000, 99999),
 			'facebookid' 	=> $faker->randomNumber(10000, 99999),
